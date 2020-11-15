@@ -1,18 +1,18 @@
 html,
 body {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 button,
@@ -20,40 +20,34 @@ input,
 textarea,
 section,
 option {
-    outline: none;
-    border: none;
+  outline: none;
+  border: none;
 }
 
 button {
-    display: block;
-    border: none;
-    background: none;
-    cursor: pointer;
+  display: block;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 a {
-    display: inline-block;
-    text-decoration: none;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .container {
-<<<<<<< HEAD
   max-width: 882px;
   margin: 0 auto;
   padding: 0 15px;
-=======
-    max-width: 882px;
-    margin: 0 auto;
-    padding: 0 10px;
->>>>>>> 25164f3e3d9b9f2dcbc75439e93d1c0fec1a2a3d
 }
 
 .is-visible {
-    display: none;
+  display: none;
 }

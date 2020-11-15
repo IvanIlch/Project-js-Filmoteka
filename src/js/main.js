@@ -1,0 +1,5 @@
+import './header/main'
+import './main/main'
+import './film-view/main'
+import './film-view/main'
+import './footer/main'
