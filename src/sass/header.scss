@@ -1,0 +1,209 @@
+.header {
+    height: 230px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+// .header-home {
+//     background-image: url(./images/background-home.png);
+// }
+// .header-library {
+//     background-image: url(./images/background-library.png);
+// }
+.header-details {
+    background-image: linear-gradient( 0deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(./images/background-details.png);
+}
+
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 287px;
+}
+
+.header-buttons button {
+    font-family: 'Roboto';
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    width: 136px;
+    height: 44px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.header-buttons button:hover {
+    background: #FF6B01;
+}
+
+.menu__btn {
+    display: none;
+}
+
+.page-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 119px;
+}
+
+.site-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin-top: 14px;
+    min-width: 144px;
+}
+
+.site-navigation__item {
+    padding-bottom: 1px;
+    text-decoration: underline 0.2s linear;
+}
+
+.site-navigation__link {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    line-height: 14.06px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: color 0.2s linear;
+}
+
+.site-navigation__item:hover {
+    display: inline-block;
+    border-bottom: solid 3px #FF6B08;
+}
+
+// .site-navigation__item--active {
+//     border-bottom: solid 3px #fce38a;
+// }
+.site-logo {
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: #fff;
+    line-height: 35.16px;
+    letter-spacing: 1px;
+}
+
+img {
+    display: inline-block;
+}
+
+.search-form {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.41px;
+    text-align: center;
+    margin-top: -4px;
+}
+
+input[type='text']::placeholder {
+    border-bottom: 3px solid white;
+    color: #fff;
+}
+
+.home-search {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16px;
+    width: 336px;
+    background-color: transparent;
+    color: #fff;
+    border-bottom: 1px solid white;
+}
+
+.home-glass {
+    margin-left: -19px;
+}
+
+.overlay {
+    width: 100vw;
+    height: 230px;
+    background-color: #000;
+}
+
+@media(min-width:768px)and(max-width:1024px) {
+    .container {
+        max-width: 618px;
+    }
+}
+
+@media (min-width: 320px) and (max-width:767px) {
+    .container {
+        max-width: 767px;
+    }
+    .home-search {
+        width: 278px;
+    }
+    .home-glass {
+        margin-left: -16px;
+    }
+    .logo_img {
+        margin-left: 8px;
+    }
+    .logo_text {
+        display: none;
+    }
+    .site-navigation {
+        position: absolute;
+        display: none;
+        text-align: center;
+        transform: translate(50%, 50%);
+        transition: all .3s;
+    }
+    .site-navigation__link {
+        margin: 0 auto;
+        padding-top: 30px;
+        display: block;
+        font-size: 20px;
+    }
+    .site-navigation__item {
+        padding-bottom: 5px;
+    }
+    .menu__btn {
+        display: block;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 46px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+    .menu__btn span {
+        background-color: white;
+        height: 3px;
+        width: 100%;
+    }
+    .menu__btn::after,
+    .menu__btn::before {
+        content: "";
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+    }
+    .menu__btn::before {
+        top: 0;
+        left: 0;
+    }
+    .menu__btn::after {
+        left: 0;
+        bottom: 0;
+    }
+}
