@@ -194,6 +194,7 @@ input[type='text']::placeholder {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: all 0.3s;
+    display: none;
   }
   .site-navigation__link {
     margin: 0 auto;
