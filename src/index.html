@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Filmoteka</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="header header-home">
-        <div class="container">
-            <div class="hamburger" id="hamburger-9">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </div>
-            <nav class="page-nav flex">
-
-                <a class="site-logo" href="#"><img src="images/logo.png" class="logo_img" alt="Логотип" /><span class="logo-text">Filmoteka</span
+      <div class="container">
+        <div class="hamburger" id="hamburger-9">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+        <nav class="page-nav flex">
+          <a class="site-logo" href="#"
+            ><img src="images/logo.png" class="logo_img" alt="Логотип" /><span
+              class="logo-text"
+              >Filmoteka</span
             ></a
           >
           <ul class="site-navigation is-visible">
             <li class="site-navigation__item">
               <a
-                class="site-navigation__link site-navigation__link--active"
+                class="site-navigation__link home-js site-navigation__link--active"
                 href="#"
                 >Home</a
               >
             </li>
             <li class="site-navigation__item">
-              <a class="site-navigation__link" href="#">My Library</a>
+              <a class="site-navigation__link library-js" href="#"
+                >My Library</a
+              >
             </li>
           </ul>
         </nav>
@@ -43,127 +46,168 @@
             placeholder="Поиск фильмов"
           />
           <span class="home-glass"><img src="images/placeholder.svg" /></span>
-                    </form>
-                    <div class="header-buttons  is-visible">
-                        <button class="watched">Watched</button>
-                        <button class="queue">Queue</button>
-                    </div>
+        </form>
+        <div class="header-buttons is-visible">
+          <button class="watched button-watched-js">Watched</button>
+          <button class="queue button-queue-js">Queue</button>
         </div>
-        <div class="overlay is-visible">
-            <ul class="site-navigation  is-visible">
-                <li class="site-navigation__item">
-                    <a class="site-navigation__link site-navigation__link--active" href="#">Home</a
+      </div>
+      <div class="overlay is-visible">
+        <ul class="site-navigation-on-burger">
+          <li class="site-navigation-on-burger__item">
+            <a
+              class="site-navigation-on-burger__link site-navigation-on-burger__link-home-js site-navigation-on-burger__link--active"
+              href="#"
+              >Home</a
             >
           </li>
-          <li class="site-navigation__item">
-            <a class="site-navigation__link" href="#">My Library</a>
-                </li>
-            </ul>
-        </div>
+          <li class="site-navigation-on-burger__item">
+            <a
+              class="site-navigation-on-burger__link site-navigation-on-burger__link-library-js"
+              href="#"
+              >My Library</a
+            >
+          </li>
+        </ul>
+      </div>
     </header>
     <main>
-        <section class="films">
-            <div class="container">
-                <ul class="list-films">
-                    <li class="list-films__item">
-                        <div class="foto-box">
-                            <img src="./images/section-films 294/Rectangle 5.png" alt="" class="foto-img" />
-                        </div>
-                        <p class="list-films__item-text">greihound</p>
-                        <div class="raiting-box">
-                            <p class="list-films__item-info">Drama,action | 2020</p>
-                            <p class="list-films__item-rating">10</p>
-                        </div>
-                    </li>
-                    <li class="list-films__item">
-                        <div class="foto-box">
-                            <img src="./images/section-films 294/Rectangle 12.png" alt="" class="foto-img" />
-                        </div>
-                        <p class="list-films__item-text">greihound</p>
-                        <div class="raiting-box">
-                            <p class="list-films__item-info">Drama,action |</p>
-                            <p class="list-films__item-rating">10</p>
-                        </div>
-                    </li>
-                    <li class="list-films__item">
-                        <div class="foto-box">
-                            <img src="./images/section-films 294/Rectangle 13.png" class="foto-img" />
-                        </div>
-                        <p class="list-films__item-text">greihound</p>
-                        <div class="raiting-box">
-                            <p class="list-films__item-info">Drama,action |</p>
-                            <p class="list-films__item-rating">10</p>
-                        </div>
-                    </li>
-                    <li class="list-films__item">
-                        <div class="foto-box">
-                            <img src="./images/section-films 294/Rectangle 14.png" alt="" class="foto-img" />
-                        </div>
-                        <p class="list-films__item-text">greihound</p>
-                        <div class="raiting-box">
-                            <p class="list-films__item-info">Drama,action |</p>
-                            <p class="list-films__item-rating">10</p>
-                        </div>
-                    </li>
-                    <li class="list-films__item">
-                        <div class="foto-box">
-                            <img src="./images/section-films 294/Rectangle 15.png" alt="" class="foto-img" />
-                        </div>
-                        <p class="list-films__item-text">greihound</p>
-                        <div class="raiting-box">
-                            <p class="list-films__item-info">Drama,action |</p>
-                            <p class="list-films__item-rating">10</p>
-                        </div>
-                    </li>
-                    <li class="list-films__item">
-                        <div class="foto-box">
-                            <img src="./images/section-films 294/Rectangle 16.png" alt="" class="foto-img" />
-                        </div>
-                        <p class="list-films__item-text">greihound</p>
-                        <div class="raiting-box">
-                            <p class="list-films__item-info">Drama,action |</p>
-                            <p class="list-films__item-rating">10</p>
-                        </div>
-                    </li>
-                    <li class="list-films__item">
-                        <div class="foto-box">
-                            <img src="./images/section-films 294/Rectangle 17.png" alt="" class="foto-img" />
-                        </div>
-                        <p class="list-films__item-text">greihound</p>
-                        <div class="raiting-box">
-                            <p class="list-films__item-info">Drama,action |</p>
-                            <p class="list-films__item-rating">10</p>
-                        </div>
-                    </li>
-                    <li class="list-films__item">
-                        <div class="foto-box">
-                            <img src="./images/section-films 294/Rectangle 18.png" alt="" class="foto-img" />
-                        </div>
-                        <p class="list-films__item-text">greihound</p>
-                        <div class="raiting-box">
-                            <p class="list-films__item-info">Drama,action |</p>
-                            <p class="list-films__item-rating">10</p>
-                        </div>
-                    </li>
-                    <li class="list-films__item">
-                        <div class="foto-box">
-                            <img src="./images/section-films 294/Rectangle 18.png" alt="" class="foto-img cont-max-width" />
-                        </div>
-                        <p class="list-films__item-text">greihound</p>
-                        <div class="raiting-box">
-                            <p class="list-films__item-info">Drama,action |</p>
-                            <p class="list-films__item-rating">8,2</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section></section>
+      <section class="films">
+        <div class="container">
+          <ul class="list-films">
+            <li class="list-films__item">
+              <div class="foto-box">
+                <img
+                  src="./images/section-films 294/Rectangle 5.png"
+                  alt=""
+                  class="foto-img"
+                />
+              </div>
+              <p class="list-films__item-text">greihound</p>
+              <div class="raiting-box">
+                <p class="list-films__item-info">Drama,action | 2020</p>
+                <p class="list-films__item-rating">10</p>
+              </div>
+            </li>
+            <li class="list-films__item">
+              <div class="foto-box">
+                <img
+                  src="./images/section-films 294/Rectangle 12.png"
+                  alt=""
+                  class="foto-img"
+                />
+              </div>
+              <p class="list-films__item-text">greihound</p>
+              <div class="raiting-box">
+                <p class="list-films__item-info">Drama,action |</p>
+                <p class="list-films__item-rating">10</p>
+              </div>
+            </li>
+            <li class="list-films__item">
+              <div class="foto-box">
+                <img
+                  src="./images/section-films 294/Rectangle 13.png"
+                  class="foto-img"
+                />
+              </div>
+              <p class="list-films__item-text">greihound</p>
+              <div class="raiting-box">
+                <p class="list-films__item-info">Drama,action |</p>
+                <p class="list-films__item-rating">10</p>
+              </div>
+            </li>
+            <li class="list-films__item">
+              <div class="foto-box">
+                <img
+                  src="./images/section-films 294/Rectangle 14.png"
+                  alt=""
+                  class="foto-img"
+                />
+              </div>
+              <p class="list-films__item-text">greihound</p>
+              <div class="raiting-box">
+                <p class="list-films__item-info">Drama,action |</p>
+                <p class="list-films__item-rating">10</p>
+              </div>
+            </li>
+            <li class="list-films__item">
+              <div class="foto-box">
+                <img
+                  src="./images/section-films 294/Rectangle 15.png"
+                  alt=""
+                  class="foto-img"
+                />
+              </div>
+              <p class="list-films__item-text">greihound</p>
+              <div class="raiting-box">
+                <p class="list-films__item-info">Drama,action |</p>
+                <p class="list-films__item-rating">10</p>
+              </div>
+            </li>
+            <li class="list-films__item">
+              <div class="foto-box">
+                <img
+                  src="./images/section-films 294/Rectangle 16.png"
+                  alt=""
+                  class="foto-img"
+                />
+              </div>
+              <p class="list-films__item-text">greihound</p>
+              <div class="raiting-box">
+                <p class="list-films__item-info">Drama,action |</p>
+                <p class="list-films__item-rating">10</p>
+              </div>
+            </li>
+            <li class="list-films__item">
+              <div class="foto-box">
+                <img
+                  src="./images/section-films 294/Rectangle 17.png"
+                  alt=""
+                  class="foto-img"
+                />
+              </div>
+              <p class="list-films__item-text">greihound</p>
+              <div class="raiting-box">
+                <p class="list-films__item-info">Drama,action |</p>
+                <p class="list-films__item-rating">10</p>
+              </div>
+            </li>
+            <li class="list-films__item">
+              <div class="foto-box">
+                <img
+                  src="./images/section-films 294/Rectangle 18.png"
+                  alt=""
+                  class="foto-img"
+                />
+              </div>
+              <p class="list-films__item-text">greihound</p>
+              <div class="raiting-box">
+                <p class="list-films__item-info">Drama,action |</p>
+                <p class="list-films__item-rating">10</p>
+              </div>
+            </li>
+            <li class="list-films__item">
+              <div class="foto-box">
+                <img
+                  src="./images/section-films 294/Rectangle 18.png"
+                  alt=""
+                  class="foto-img cont-max-width"
+                />
+              </div>
+              <p class="list-films__item-text">greihound</p>
+              <div class="raiting-box">
+                <p class="list-films__item-info">Drama,action |</p>
+                <p class="list-films__item-rating">8,2</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section></section>
     </main>
     <footer></footer>
     <div class="loader-overlay">
-        <div class="spinner"></div>
+      <div class="spinner"></div>
     </div>
-</body>
-
+  </body>
 </html>
