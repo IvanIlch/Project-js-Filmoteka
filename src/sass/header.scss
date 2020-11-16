@@ -86,7 +86,6 @@
 //     display: inline-block;
 //   border-bottom: solid 3px #ff6b08;
 // }
-
 .site-navigation__link--active {
   border-bottom: solid 3px #ff6b08;
 }
@@ -101,6 +100,7 @@
   line-height: 35.16px;
   letter-spacing: 1px;
 }
+
 .site-navigation-on-burger {
   font-size: 20px;
   text-transform: uppercase;
@@ -112,10 +112,13 @@
   transform: translate(-50%, -50%);
   transition: all 0.3s;
 }
+
 .site-navigation-on-burger__item {
   padding: 10px;
 }
+
 .site-navigation-on-burger__link {
+  padding-bottom: 8px;
   color: #fff;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -234,7 +237,7 @@ input[type='text']::placeholder {
     cursor: pointer;
     position: absolute;
     right: 20px;
-    top: 46px;
+    top: 39px;
     z-index: 10;
     background-color: transparent;
     border: none;
@@ -281,4 +284,19 @@ input[type='text']::placeholder {
   .site-navigation {
     display: flex;
   }
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
