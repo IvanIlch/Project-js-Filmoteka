@@ -37,7 +37,6 @@ function classListLibrary() {
     refs.searchForm.classList.add('is-visible');
     refs.headerButtons.classList.remove('is-visible');
     refs.headerButtons.classList.add('flex')
-
 }
 function setHomeActive() {
     refs.navLinkLibrary.classList.remove('site-navigation__link--active');
