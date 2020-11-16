@@ -52,6 +52,16 @@ function clickOnBurger() {
     refs.siteNav.classList.toggle('is-visible');
     refs.headerButtons.classList.add('is-visible');
     refs.headerButtons.classList.remove('flex');
+    if (refs.header.classList.contains('header-library')) {
+        console.log('hello');
+        refs.searchForm.classList.add('is-visible');
+        if (!refs.burger.classList.contains('is-active')) {
+            refs.headerButtons.classList.remove('is-visible');
+            refs.headerButtons.classList.add('flex');
+
+        }
+
+    }
 }
 function closeBurger() {
     refs.burger.classList.remove('is-active');
