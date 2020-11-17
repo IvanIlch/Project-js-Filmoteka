@@ -1,11 +1,9 @@
 import './refChangeHeader';
 import filmService from './apiService';
-// import renderFilms from '../main/renderFilms';
 import articlesTpl from "./templates/articles.hbs"
 
 function updateArticlesMakcup(articles) {
     const markup = articlesTpl(articles);
-    console.log(markup);
     refs.galleryList.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -21,3 +19,5 @@ refs.searchForm.addEventListener('submit', async event => {
     updateArticlesMakcup(await filmService.getFilms());
     form.reset();
 });
+
+filmService.getFilmId();

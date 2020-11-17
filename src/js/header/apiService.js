@@ -8,7 +8,16 @@ export default {
 
     async getFilms() {
         try {
-            const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${token}&query=${this.query}&page=${this.page}&include_adult=false&language=en-US`);
+            const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${token}&query=${this.query}&page=${this.page}&include_adult=false&language=en-US&`);
+            console.log(response.data);
+            return response.data.results;
+        } catch (error) {
+            console.error(error);
+        }
+    },
+    async getFilmId() {
+        try {
+            const response = await axios.get(`https://api.themoviedb.org/3/movie/329440?api_key=${token}&include_adult=false&language=en-US&`);
             console.log(response.data);
             return response.data.results;
         } catch (error) {

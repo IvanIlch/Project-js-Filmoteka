@@ -1,130 +1,150 @@
 .film-view-content {
-  padding-top: 60px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
 }
+
 .film-view-image {
-  width: 426px;
-  height: 514px;
-  background-image: url(./images/film-view/Rectangle-18.jpg);
-  //   background-size: cover;
+    width: 426px;
+    height: 514px;
+    background-image: url(./images/film-view/Rectangle-18.jpg);
+    //   background-size: cover;
 }
-.film-view-description {
-}
+
+.film-view-description {}
+
 .film-view-descriptions__block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
+
 .film-view-name {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
+
 .film-view-description__items--item {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
+
 .film-view-description__items-name--item {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
+
 .film-view-description__items-name--item-orange {
-  color: $color-white;
-  background-color: $color-orange;
-  padding: 1px 10px;
-  border-radius: 5px;
+    color: $color-white;
+    background-color: $color-orange;
+    padding: 1px 10px;
+    border-radius: 5px;
 }
+
 .film-view-description--about {
-  padding-top: 10px;
-  margin-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
 }
+
 .film-view-buttons {
-  padding-top: 20px;
-  display: flex;
+    padding-top: 20px;
+    display: flex;
 }
+
 .film-view-buttons button {
-  font-family: 'Roboto';
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 500;
-  width: 136px;
-  height: 44px;
-  border: 1px solid $color-black;
-  border-radius: 5px;
-  color: $color-black;
-  text-transform: uppercase;
-  transition: transform 0.8s ease-in-out;
+    font-family: 'Roboto';
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    width: 136px;
+    height: 44px;
+    border: 1px solid $color-black;
+    border-radius: 5px;
+    color: $color-black;
+    text-transform: uppercase;
+    transition: transform 0.8s ease-in-out;
 }
+
 .film-view-buttons button:first-child {
-  margin-right: 20px;
+    margin-right: 20px;
 }
+
 .film-view-buttons button:hover {
-  background-color: $color-orange;
-  color: $color-white;
-  border-color: $color-orange;
-  transform: rotateY(360deg);
+    background-color: $color-orange;
+    color: $color-white;
+    border-color: $color-orange;
+    transform: rotateY(360deg);
 }
+
 .film-view-name {
-  font-family: Roboto;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 35px;
-  letter-spacing: 0em;
-  text-align: left;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
 }
+
 .film-view-description__items {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  color: #8c8c8c;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #8c8c8c;
 }
+
 .film-view-description__items-name {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  text-transform: uppercase;
-  color: $color-black;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: $color-black;
 }
+
 .film-view-description__items-name:last-child {
-  text-transform: none;
+    text-transform: none;
 }
+
 .film-view-description--about {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  color: $color-black;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: $color-black;
 }
+
 .film-view-description--about-text {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
-  color: $color-black;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    color: $color-black;
 }
+
 @media (min-width: 768px) and(max-width:1023px) {
-  .film-view-image {
-    max-width: 294px;
-    max-height: 416px;
-    background-image: url(./images/film-view/temp.png);
-  }
+    .film-view-image {
+        max-width: 294px;
+        max-height: 416px;
+        background-image: url(./images/film-view/temp.png);
+    }
 }
+
 @media (min-width: 320px) and(max-width:767px) {
-  .film-view-content {
-    grid-template-columns: 1fr;
-  }
-  .film-view-image {
-    margin: 0 auto;
-    width: 280px;
-    height: 416px;
-    background-image: url(./images/film-view/mobile.png);
-  }
-  .film-view-description {
-    margin: 0 auto;
-    width: 320px;
-  }
+    .film-view-content {
+        grid-template-columns: 1fr;
+    }
+    .film-view-image {
+        margin: 0 auto;
+        width: 280px;
+        height: 416px;
+        background-image: url(./images/film-view/mobile.png);
+    }
+    .film-view-description {
+        margin: 0 auto;
+        width: 320px;
+    }
 }
