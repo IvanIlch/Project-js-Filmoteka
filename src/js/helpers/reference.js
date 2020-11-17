@@ -13,5 +13,7 @@ refs = {
     buttonQueue: document.querySelector('.button-queue-js'),
     buttonHomeOnBurger: document.querySelector('.site-navigation-on-burger__link-home-js'),
     buttonLibraryOnBurger: document.querySelector('.site-navigation-on-burger__link-library-js'),
-    galleryList: document.querySelector('.list-films')
+    galleryList: document.querySelector('.list-films'),
+    filmsSection: document.querySelector('.films-js'),
+    filmViewSection: document.querySelector('.film-view-js')
 }
