@@ -6,9 +6,6 @@ function updateArticlesMakcup(articles) {
     refs.filmViewSection.insertAdjacentHTML('beforeend', markup);
 }
 
-
-
-
 refs.galleryList.addEventListener('click', async(e) => {
     const id = e.target.dataset.id;
     refs.filmsSection.classList.add('is-visible');

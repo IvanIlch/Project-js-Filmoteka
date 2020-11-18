@@ -24,6 +24,19 @@ refs.buttonLibraryOnBurger.addEventListener('click', () => {
     classListLibrary();
     closeBurger();
 });
+refs.filmsSection.addEventListener('click', e => {
+    refs.header.classList.add('header-details');
+    refs.header.classList.remove('header-home');
+    refs.header.classList.remove('header-library');
+    refs.searchForm.classList.add('is-visible');
+});
+
+refs.navLinkLibrary.addEventListener('click', e => {
+    if (refs.header.classList.contains('header-details')) {
+        refs.header.classList.add('header-library');
+        refs.header.classList.remove('header-details');
+    };
+});
 
 function classListHome() {
     refs.header.classList.remove('header-library');
@@ -70,3 +83,13 @@ function closeBurger() {
     refs.nav.classList.add('flex');
     refs.overlayHeader.classList.add('is-visible');
 };
+
+function classListDetails() {
+    refs.header.classList.add('header-details');
+    refs.header.classList.remove('header-home');
+    refs.header.classList.remove('header-library');
+    refs.headerButtons.classList.add('is-visible');
+    if (!refs.filmViewSection.classList.contains('is-visible')) {
+        classListDetails()
+    };
+}
