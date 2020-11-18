@@ -84,12 +84,3 @@ function closeBurger() {
     refs.overlayHeader.classList.add('is-visible');
 };
 
-function classListDetails() {
-    refs.header.classList.add('header-details');
-    refs.header.classList.remove('header-home');
-    refs.header.classList.remove('header-library');
-    refs.headerButtons.classList.add('is-visible');
-    if (!refs.filmViewSection.classList.contains('is-visible')) {
-        classListDetails()
-    };
-}
