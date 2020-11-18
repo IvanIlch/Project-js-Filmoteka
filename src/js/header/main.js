@@ -17,7 +17,6 @@ refs.searchForm.addEventListener('submit', async event => {
 
     filmService.resetPage();
     updateArticlesMakcup(await filmService.getFilms());
+    // updateArticlesMakcup(await filmService.getFilmId());
     form.reset();
 });
-
-filmService.getFilmId();
