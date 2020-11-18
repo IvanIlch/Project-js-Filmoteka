@@ -15,11 +15,11 @@ export default {
             console.error(error);
         }
     },
-    async getFilmId() {
+    async getFilmId(id) {
         try {
-            const response = await axios.get(`https://api.themoviedb.org/3/movie/329440?api_key=${token}&include_adult=false&language=en-US&`);
+            const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${token}&include_adult=false&language=en-US&`);
             console.log(response.data);
-            return response.data.results;
+            return response.data;
         } catch (error) {
             console.error(error);
         }
