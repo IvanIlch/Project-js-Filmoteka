@@ -19,6 +19,7 @@ refs.searchForm.addEventListener('submit', async event => {
 function updateArticlesMakcup(articles) {
     const markup = articlesTpl(articles);
     refs.galleryList.insertAdjacentHTML('beforeend', markup);
+
 }
 
 refs.logo.addEventListener('click', async e => {
