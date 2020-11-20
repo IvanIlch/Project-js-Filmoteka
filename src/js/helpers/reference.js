@@ -15,5 +15,6 @@ refs = {
     buttonLibraryOnBurger: document.querySelector('.site-navigation-on-burger__link-library-js'),
     galleryList: document.querySelector('.list-films'),
     filmsSection: document.querySelector('.films-js'),
-    filmViewSection: document.querySelector('.film-view-js')
+    filmViewSection: document.querySelector('.film-view-js'),
+    pagination: document.querySelector('.pagination')
 }

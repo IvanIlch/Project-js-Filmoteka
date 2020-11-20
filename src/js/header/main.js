@@ -1,6 +1,7 @@
 import './refChangeHeader';
 import filmService from './apiService';
 import articlesTpl from "./templates/articles.hbs";
+import './pagination'
 
 refs.searchForm.addEventListener('submit', async event => {
     event.preventDefault();
@@ -32,3 +33,5 @@ async function topFilms() {
     updateArticlesMakcup(await filmService.getPopularFilms())
 };
 topFilms();
+
+export default updateArticlesMakcup;

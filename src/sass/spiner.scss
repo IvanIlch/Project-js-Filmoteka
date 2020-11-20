@@ -1,5 +1,4 @@
 .loader-overlay {
-  display: none;
   z-index: 20;
   position: fixed;
   top: 0;
@@ -8,17 +7,36 @@
   height: 100%;
   overflow: hidden;
   background: rgba(58, 74, 83, 0.2);
+  & .spinner {
+    width: 56px;
+    height: 56px;
+    border: 8px solid #f5730e;
+    border-right-color: transparent;
+    border-radius: 50%;
+    position: relative;
+    animation: loader-rotate 0.8s linear infinite;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    &:after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #f5730e;
+      border-radius: 50%;
+      position: absolute;
+      top: -1px;
+      left: 33px;
+    }
+  }
 }
-.loader-overlay .spinner {
-  width: 56px;
-  height: 56px;
-  border: 8px solid #f5730e;
-  border-right-color: transparent;
-  border-radius: 50%;
-  position: relative;
-  animation: loader-rotate 0.8s linear infinite;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
 }
