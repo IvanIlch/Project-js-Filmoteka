@@ -1,7 +1,7 @@
 import './refChangeHeader';
 import filmService from './apiService';
 import articlesTpl from "./templates/articles.hbs";
-import topFilms from './refChangeHeader';
+import './pagination'
 
 refs.searchForm.addEventListener('submit', async event => {
     event.preventDefault();
@@ -19,4 +19,20 @@ refs.searchForm.addEventListener('submit', async event => {
 function updateArticlesMakcup(articles) {
     const markup = articlesTpl(articles);
     refs.galleryList.insertAdjacentHTML('beforeend', markup);
+
 }
+
+refs.logo.addEventListener('click', async e => {
+    updateArticlesMakcup(await filmService.getPopularFilms())
+});
+
+refs.navLinkHome.addEventListener('click', async e => {
+    updateArticlesMakcup(await filmService.getPopularFilms())
+});
+
+async function topFilms() {
+    updateArticlesMakcup(await filmService.getPopularFilms())
+};
+topFilms();
+
+export default updateArticlesMakcup;

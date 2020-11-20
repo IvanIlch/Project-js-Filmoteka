@@ -18,7 +18,7 @@ export default {
     async getPopularFilms() {
         try {
             const response = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=bfce076e7c9a3c60d70abb15359c6391`);
-            console.log(response.data);
+            // console.log(response.data);
             return response.data.results;
         } catch (error) {
             console.error(error);
@@ -27,11 +27,17 @@ export default {
     async getFilmId(id) {
         try {
             const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${token}&include_adult=false&language=en-US`);
-            console.log(response.data);
+            // console.log(response.data);
             return response.data;
         } catch (error) {
             console.error(error);
         }
+    },
+    getFilmsPagination() {
+        return axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=bfce076e7c9a3c60d70abb15359c6391`);
+    },
+    getFilmsPaginationByPage(page) {
+        return axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=bfce076e7c9a3c60d70abb15359c6391&page=${page}`);
     },
     resetPage() {
         this.page = 1
