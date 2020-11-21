@@ -1,7 +1,8 @@
-import picture from './templates/picture.hbs'
+import picture from './templates/filmInfo.hbs';
+import '../helpers/reference'
 
-function renderNewPictures(data) {
+function renderFilms(data) {
     const markup = picture(data);
-    return refs.list.insertAdjacentHTML('beforeend', markup);
+    return refs.galleryList.insertAdjacentHTML('beforeend', markup);
 }
-export default renderNewPictures;
+export default renderFilms;

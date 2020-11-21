@@ -5,6 +5,7 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
     &__image {
+        border-radius: 5px;
         width: 426px;
         height: 514px;
     }

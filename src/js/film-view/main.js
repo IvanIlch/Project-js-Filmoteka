@@ -1,10 +1,10 @@
 import filmTempl from './templates/film-view.hbs';
 import filmService from '../header/apiService';
 
-function updateArticlesMakcup(articles) {
-    const markup = filmTempl(articles);
+function renderFilmInfo(filmName) {
+    const markup = filmTempl(filmName);
     refs.filmViewSection.insertAdjacentHTML('beforeend', markup);
-}
+};
 
 refs.galleryList.addEventListener('click', async(e) => {
     const id = e.target.dataset.id;
@@ -16,5 +16,5 @@ refs.galleryList.addEventListener('click', async(e) => {
         behavior: "smooth"
     });
 
-    updateArticlesMakcup(await filmService.getFilmId(id));
-})
+    renderFilmInfo(await filmService.getFilmId(id));
+});

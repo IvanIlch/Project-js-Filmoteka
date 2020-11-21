@@ -1,18 +1,18 @@
 import './refChangeHeader';
 import filmService from './apiService';
-import articlesTpl from "./templates/articles.hbs";
-refs.searchForm.addEventListener('submit', async event => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    filmService.query = form.elements.query.value;
-    refs.galleryList.innerHTML = '';
-    filmService.resetPage();
-    updateArticlesMakcup(await filmService.getFilms());
-    form.reset();
-});
-function updateArticlesMakcup(articles) {
-    const markup = articlesTpl(articles);
-    refs.galleryList.insertAdjacentHTML('beforeend', markup);
+import renderFilms from './renderFilms';
+
+async function topFilms() {
+    renderFilms(await filmService.getPopularFilms())
+};
+
+function getGallery() {
+    if (refs.galleryList.children.length > 0) {
+        refs.galleryList.innerHTML = '';
+        topFilms()
+    } else {
+        topFilms()
+    }
 }
 
-export default updateArticlesMakcup;
+getGallery();

@@ -38,13 +38,13 @@ img {
     font-weight: 500;
     width: 136px;
     height: 44px;
-    border: 1px solid #fff;
+    border: 1px solid $color-white;
     border-radius: 5px;
     background-color: transparent;
-    color: #fff;
+    color: $color-white;
     text-transform: uppercase;
     &:hover {
-        background: #ff6b01;
+        background: $color-orange;
     }
 }
 
@@ -64,7 +64,7 @@ img {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 30px;
-    color: #fff;
+    color: $color-white;
     line-height: 35.16px;
     letter-spacing: 1px;
 }
@@ -84,10 +84,10 @@ img {
         font-weight: 500;
         line-height: 14.06px;
         text-transform: uppercase;
-        color: #fff;
+        color: $color-white;
         transition: color 0.2s linear;
         &--active {
-            border-bottom: 3px solid #ff6b08;
+            border-bottom: 3px solid $color-orange;
         }
     }
 }
@@ -107,13 +107,13 @@ img {
     }
     &__link {
         padding-bottom: 8px;
-        color: #fff;
+        color: $color-white;
         font-family: 'Roboto', sans-serif;
         font-weight: 500;
         line-height: 14.06px;
         &:hover {
-            border-bottom: solid 3px #ff6b08;
-            text-shadow: 1px 1px 5px #ff6b08;
+            border-bottom: solid 3px $color-orange;
+            text-shadow: 1px 1px 5px $color-orange;
         }
     }
 }
@@ -128,8 +128,8 @@ img {
 }
 
 input[type='text']::placeholder {
-    border-bottom: 3px solid white;
-    color: #fff;
+    border-bottom: 3px solid $color-white;
+    color: $color-white;
 }
 
 .home-search {
@@ -139,8 +139,8 @@ input[type='text']::placeholder {
     line-height: 16px;
     width: 336px;
     background-color: transparent;
-    color: #fff;
-    border-bottom: 1px solid white;
+    color: $color-white;
+    border-bottom: 1px solid $color-white;
 }
 
 .home-glass {
@@ -194,15 +194,6 @@ input[type='text']::placeholder {
             padding-bottom: 5px;
         }
     }
-    // .site-navigation__link {
-    //     margin: 0 auto;
-    //     padding-top: 30px;
-    //     display: block;
-    //     font-size: 20px;
-    // }
-    // .site-navigation__item {
-    //     padding-bottom: 5px;
-    // }
     // Hamburger
     .row .three {
         padding: 80px 30px;
