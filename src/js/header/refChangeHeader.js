@@ -1,31 +1,45 @@
 import filmService from '../header/apiService';
-import renderFilms from './renderFilms'
+import Pagination from './pagination.js';
+import renderFilms from './renderFilms';
 import '../header/main';
+
 
 refs.searchForm.addEventListener('submit', async event => {
     event.preventDefault();
     const form = event.currentTarget;
     filmService.query = form.elements.query.value;
+    openWarningMessage();
+    Pagination.clear();
     refs.galleryList.innerHTML = '';
-    filmService.resetPage();
-    renderFilms(await filmService.getFilms());
+    if (filmService.query) {
+        Pagination.init(filmService.getFilmPaginationOnSearch());
+        closeWarningMessage();
+        refs.galleryList.innerHTML = '';
+        filmService.resetPage();
+        filmService.getFilms();
+        renderFilms(await filmService.getFilms());
+        if (refs.galleryList.children.length === 0) {
+            Pagination.clear();
+            refs.warningMessage.classList.remove('is-visible');
+            refs.warningMessage.textContent = "Search result not successfull. Enter correct movie name and try again";
+        }
+    }
     form.reset();
 });
 
 refs.logo.addEventListener('click', () => {
+    Pagination.init();
     classListHome();
     setHomeActive();
 });
-
 refs.logo.addEventListener('click', async e => {
     refs.galleryList.innerHTML = '';
     renderFilms(await filmService.getPopularFilms());
 });
 refs.burger.addEventListener('click', clickOnBurger);
-
 refs.navLinkLibrary.addEventListener('click', classListLibrary);
-
 refs.navLinkHome.addEventListener('click', (e) => {
+    Pagination.init();
     classListHome();
     if (refs.navLinkLibrary.classList.contains('site-navigation__link--active')) {
         setHomeActive();
@@ -44,8 +58,6 @@ refs.buttonLibraryOnBurger.addEventListener('click', () => {
     closeBurger();
 });
 refs.filmsSection.addEventListener('click', openFilmView);
-
-
 function classListHome() {
     refs.pagination.classList.remove('is-visible');
     refs.filmsSection.classList.remove('is-visible');
@@ -63,7 +75,6 @@ function classListHome() {
     refs.navLinkHome.classList.add('site-navigation__link--active');
     refs.header.classList.remove('header-details');
 };
-
 function openFilmView() {
     refs.headerButtons.classList.add('is-visible');
     refs.header.classList.add('header-details');
@@ -71,11 +82,8 @@ function openFilmView() {
     refs.header.classList.remove('header-library');
     refs.searchForm.classList.add('is-visible');
     refs.navLinkHome.classList.remove('site-navigation__link--active');
-    refs.pagination.classList.add('is-visible');
     refs.filmViewSection.innerHTML = '';
-
 }
-
 function classListLibrary() {
     refs.header.classList.add('header-library')
     if (refs.header.classList.contains('header-details')) {
@@ -95,12 +103,10 @@ function classListLibrary() {
         refs.navLinkLibrary.classList.add('site-navigation__link--active');
     }
 };
-
 function setHomeActive() {
     refs.navLinkLibrary.classList.remove('site-navigation__link--active');
     refs.navLinkHome.classList.add('site-navigation__link--active');
 };
-
 function clickOnBurger() {
     if (refs.header.classList.contains('header-details')) {
         refs.searchForm.classList.remove('is-visible')
@@ -121,10 +127,21 @@ function clickOnBurger() {
         }
     }
 };
-
 function closeBurger() {
     refs.burger.classList.remove('is-active');
     refs.nav.classList.remove('is-visible');
     refs.nav.classList.add('flex');
     refs.overlayHeader.classList.add('is-visible');
 };
+function openWarningMessage() {
+    if (!filmService.query) {
+        refs.warningMessage.classList.remove('is-visible');
+        refs.warningMessage.textContent = "Search result not successfull. Enter correct movie name and try again";
+        Pagination.clear();
+        return;
+    }
+}
+function closeWarningMessage() {
+    refs.warningMessage.classList.add('is-visible');
+    refs.warningMessage.textContent = " ";
+}

@@ -1,12 +1,14 @@
+import '../helpers/reference'
 import filmService from './apiService';
 import renderFilms from './renderFilms'
+import genresIds from './genres'
 const pagination = require('pagination');
 
 
 const Pagination = {
     items: null,
-    init() {
-        filmService.getFilmsPagination().then(data => {
+    init(fetch) {
+        fetch.then(data => {
             this.items = data.data.total_pages;
         }).then(() => {
             const paginationWrapper = document.createElement('div');
@@ -42,19 +44,17 @@ export default Pagination;
 
 
 const onPaginationClick = (page) => {
-    //   refs.warning.textContent = '';
-    //   startSpin();
     filmService
         .getFilmsPaginationByPage(page)
         .then((data) => {
-            console.log(data.data.results);
             refs.galleryList.innerHTML = '';
             renderFilms(data.data.results);
+            
+
         })
         .then(() => clickListener())
         .catch((error) => console.log(error));
 }
-
 const clickListener = () => {
     const movie = document.querySelector(".list-films");
     movie.addEventListener("click", (event) => {
@@ -71,17 +71,30 @@ const clickListener = () => {
 
     });
 };
-
-Pagination.init()
-
-
-
-
-
-
-
-
-
+// function getGenres(response) {
+//     const newData =  response.data.results.map(item => {
+//               let newGenres = [];
+//               try{item.genre_ids.map(id => {
+//                   const found = genresIds.find(item => item.id === id);
+//                   console.log(found);
+//           newGenres.push(found.name);
+//               });
+//               }
+//               catch { console.log("Сломалось");}
+//         if (newGenres.length >= 3) {
+//           const normalizedGenres = newGenres.slice(0, 2);
+//           normalizedGenres.push('Other');
+//           item.genre_ids = normalizedGenres.join(', ');
+//           item.release_date = item.release_date.slice(0, 4);
+//         } else {
+//           item.genre_ids = newGenres.join(', ');
+//           if (item.release_date)
+//             item.release_date = item.release_date.slice(0, 4);
+//         }
+//         return item;
+//       });
+//       return newData;
+// }
 
 // refs.searchForm.addEventListener('submit', async (e) => {
 

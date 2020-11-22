@@ -16,5 +16,6 @@ refs = {
     galleryList: document.querySelector('.list-films'),
     filmsSection: document.querySelector('.films-js'),
     filmViewSection: document.querySelector('.film-view-js'),
-    pagination: document.querySelector('.pagination')
+    pagination: document.querySelector('.pagination'),
+    warningMessage: document.querySelector('.header-warning')
 }
