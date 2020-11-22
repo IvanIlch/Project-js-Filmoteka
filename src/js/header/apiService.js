@@ -46,7 +46,7 @@ async getFilms() {
           spinerStart()
         const response = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${token}`);
         spinerStop()
-        const newData =  response.data.results.map(item => {
+        const newData = response.data.results.map(item => {
           let newGenres = [];
               try{item.genre_ids.map(id => {
           const found = genresIds.find(item => item.id === id);
@@ -55,17 +55,21 @@ async getFilms() {
               }
               catch { console.log("Сломалось");}
         
-        if (newGenres.length >= 3) {
+        if (newGenres.length >= 3 && item.release_date) {
           const normalizedGenres = newGenres.slice(0, 2);
           normalizedGenres.push('Other');
           item.genre_ids = normalizedGenres.join(', ');
-          console.log(item);
-          // item.release_date = item.release_date.slice(0, 4);
+          item.release_date = item.release_date.slice(0, 4);
         } else {
           item.genre_ids = newGenres.join(', ');
-          if (item.release_date)
+          if (item.release_date){
             item.release_date = item.release_date.slice(0, 4);
-        }
+          }
+          if (item.first_air_date) {
+            item.release_date = item.first_air_date.slice(0, 4);
+          }
+          }
+          
         return item;
       });
       return newData;
