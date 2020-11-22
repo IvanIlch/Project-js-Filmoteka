@@ -1,6 +1,7 @@
 const axios = require('axios');
 import genresIds from './genres'
 const token = "bfce076e7c9a3c60d70abb15359c6391";
+import {spinerStart, spinerStop} from '../helpers/spiner'
 
 export default {
 
@@ -8,10 +9,12 @@ export default {
     page: 1,
 
 async getFilms() {
-    try {
+  try {
+      spinerStart()
       const response = await axios.get(
         `https://api.themoviedb.org/3/search/movie?api_key=${token}&query=${this.query}&page=${this.page}&include_adult=false&language=en-US&`,
-      );
+    );
+    spinerStop();
       const newData =  response.data.results.map(item => {
               let newGenres = [];
               try{item.genre_ids.map(id => {
@@ -39,13 +42,15 @@ async getFilms() {
     }
   },
     async getPopularFilms() {
-        try {
-            const response = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${token}`);
-            const newData =  response.data.results.map(item => {
-              let newGenres = [];
+      try {
+          spinerStart()
+        const response = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${token}`);
+        spinerStop()
+        const newData =  response.data.results.map(item => {
+          let newGenres = [];
               try{item.genre_ids.map(id => {
           const found = genresIds.find(item => item.id === id);
-          newGenres.push(found.name);
+                newGenres.push(found.name);
               });
               }
               catch { console.log("Сломалось");}
@@ -54,7 +59,8 @@ async getFilms() {
           const normalizedGenres = newGenres.slice(0, 2);
           normalizedGenres.push('Other');
           item.genre_ids = normalizedGenres.join(', ');
-          item.release_date = item.release_date.slice(0, 4);
+          console.log(item);
+          // item.release_date = item.release_date.slice(0, 4);
         } else {
           item.genre_ids = newGenres.join(', ');
           if (item.release_date)
@@ -68,21 +74,28 @@ async getFilms() {
         }
     },
     async getFilmId(id) {
-        try {
+      try {
+          spinerStart()
             const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${token}&include_adult=false&language=en-US`);
-            // console.log(response.data);
+        spinerStop();
             return response.data;
         } catch (error) {
             console.error(error);
         }
     },
-    getFilmsPagination() {
-        return axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${token}`);
+  getFilmsPagination() {
+    spinerStart()
+    spinerStop();
+    return axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${token}`);
     },
-    getFilmsPaginationByPage(page) {
+  getFilmsPaginationByPage(page) {
+    spinerStart()
+    spinerStop();
         return axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${token}&page=${page}`);
   },
-  getFilmPaginationOnSearch() {
+  getFilmPaginationOnSearch(page) {
+    spinerStart()
+    spinerStop();
       return axios.get(
         `https://api.themoviedb.org/3/search/movie?api_key=${token}&query=${this.query}&page=${this.page}&include_adult=false&language=en-US&`,
       );

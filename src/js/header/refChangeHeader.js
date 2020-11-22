@@ -2,6 +2,7 @@ import filmService from '../header/apiService';
 import Pagination from './pagination.js';
 import renderFilms from './renderFilms';
 import '../header/main';
+import {spinerStart, spinerStop} from '../helpers/spiner'
 
 
 refs.searchForm.addEventListener('submit', async event => {
@@ -28,7 +29,7 @@ refs.searchForm.addEventListener('submit', async event => {
 });
 
 refs.logo.addEventListener('click', () => {
-    Pagination.init();
+    Pagination.init(filmService.getFilmsPagination());
     classListHome();
     setHomeActive();
 });
@@ -39,7 +40,7 @@ refs.logo.addEventListener('click', async e => {
 refs.burger.addEventListener('click', clickOnBurger);
 refs.navLinkLibrary.addEventListener('click', classListLibrary);
 refs.navLinkHome.addEventListener('click', (e) => {
-    Pagination.init();
+    Pagination.init(filmService.getFilmsPagination());
     classListHome();
     if (refs.navLinkLibrary.classList.contains('site-navigation__link--active')) {
         setHomeActive();

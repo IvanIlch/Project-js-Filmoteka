@@ -17,5 +17,6 @@ refs = {
     filmsSection: document.querySelector('.films-js'),
     filmViewSection: document.querySelector('.film-view-js'),
     pagination: document.querySelector('.pagination'),
-    warningMessage: document.querySelector('.header-warning')
+    warningMessage: document.querySelector('.header-warning'),
+    spiner: document.querySelector('.loader-overlay')
 }
