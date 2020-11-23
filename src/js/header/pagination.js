@@ -48,66 +48,39 @@ const onPaginationClick = (page) => {
         .getFilmsPaginationByPage(page)
         .then((data) => {
             refs.galleryList.innerHTML = '';
-            renderFilms(data.data.results);
+            renderFilms(getGenres(data));
             
 
         })
-        .then(() => clickListener())
-        .catch((error) => console.log(error));
 }
-const clickListener = () => {
-    const movie = document.querySelector(".list-films");
-    movie.addEventListener("click", (event) => {
-        event.preventDefault();
-        // refs.warning.textContent = "";
-        const { id } = event.target.dataset;
-        // filmService
-        //   .getFilmId(id)
-        //   .then((data) => {
-        //     refs.galleryList.innerHTML = "";
-        //     // detailsPageMarkUp(data, refs.main);
-        //     refs.routes.forEach((item) => item.classList.remove("selected"));
-        //   })
 
-    });
-};
-// function getGenres(response) {
-//     const newData =  response.data.results.map(item => {
-//               let newGenres = [];
-//               try{item.genre_ids.map(id => {
-//                   const found = genresIds.find(item => item.id === id);
-//                   console.log(found);
-//           newGenres.push(found.name);
-//               });
-//               }
-//               catch { console.log("Сломалось");}
-//         if (newGenres.length >= 3) {
-//           const normalizedGenres = newGenres.slice(0, 2);
-//           normalizedGenres.push('Other');
-//           item.genre_ids = normalizedGenres.join(', ');
-//           item.release_date = item.release_date.slice(0, 4);
-//         } else {
-//           item.genre_ids = newGenres.join(', ');
-//           if (item.release_date)
-//             item.release_date = item.release_date.slice(0, 4);
-//         }
-//         return item;
-//       });
-//       return newData;
-// }
-
-// refs.searchForm.addEventListener('submit', async (e) => {
-
-//     e.preventDefault();
-
-//     const form = e.currentTarget;
-//     filmService.query = form.elements.query.value;
-
-//     refs.galleryList.innerHTML = '';
-//     await filmService.getFilmsPagination()
-//     filmService.resetPage();
-
-//     // await buildTable();
-
-//     form.reset();
-// })
+function getGenres(response) {
+    const newData = response.data.results.map(item => {
+        
+              let newGenres = [];
+              try{item.genre_ids.map(id => {
+                  const found = genresIds.find(item => item.id === id);
+                  console.log(found);
+          newGenres.push(found.name);
+              });
+              }
+              catch { console.log("Сломалось");}
+        if (newGenres.length >= 3 && item.release_date) {
+          const normalizedGenres = newGenres.slice(0, 2);
+          normalizedGenres.push('Other');
+          item.genre_ids = normalizedGenres.join(', ');
+          item.release_date = item.release_date.slice(0, 4);
+        } else {
+          item.genre_ids = newGenres.join(', ');
+          if (item.release_date){
+            item.release_date = item.release_date.slice(0, 4);
+          }
+          if (item.first_air_date) {
+            item.release_date = item.first_air_date.slice(0, 4);
+          }
+          }
+          
+        return item;
+      });
+      return newData;
+}

@@ -2,6 +2,7 @@ import filmService from '../header/apiService';
 import Pagination from './pagination.js';
 import renderFilms from './renderFilms';
 import '../header/main';
+import {spinerStart, spinerStop} from '../helpers/spiner'
 
 refs.searchForm.addEventListener('submit', async event => {
     event.preventDefault();

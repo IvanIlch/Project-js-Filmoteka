@@ -1,4 +1,5 @@
 import './helpers/reference'
+import './helpers/spiner'
 import './header/main'
 import './main/main'
 import './film-view/main'
