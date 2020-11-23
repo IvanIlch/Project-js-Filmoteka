@@ -4,7 +4,6 @@ import renderFilms from './renderFilms';
 import '../header/main';
 import {spinerStart, spinerStop} from '../helpers/spiner'
 
-
 refs.searchForm.addEventListener('submit', async event => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -59,6 +58,9 @@ refs.buttonLibraryOnBurger.addEventListener('click', () => {
     closeBurger();
 });
 refs.filmsSection.addEventListener('click', openFilmView);
+refs.buttonWatched.addEventListener('click', onButtonWatched);
+refs.buttonQueue.addEventListener('click', onButtonQueue);
+
 function classListHome() {
     refs.pagination.classList.remove('is-visible');
     refs.filmsSection.classList.remove('is-visible');
@@ -76,15 +78,19 @@ function classListHome() {
     refs.navLinkHome.classList.add('site-navigation__link--active');
     refs.header.classList.remove('header-details');
 };
+
 function openFilmView() {
     refs.headerButtons.classList.add('is-visible');
     refs.header.classList.add('header-details');
+    refs.headerButtons.classList.add('is-visible');
     refs.header.classList.remove('header-home');
     refs.header.classList.remove('header-library');
     refs.searchForm.classList.add('is-visible');
     refs.navLinkHome.classList.remove('site-navigation__link--active');
+    refs.navLinkLibrary.classList.remove('site-navigation__link--active');
     refs.filmViewSection.innerHTML = '';
 }
+
 function classListLibrary() {
     refs.header.classList.add('header-library')
     if (refs.header.classList.contains('header-details')) {
@@ -104,10 +110,12 @@ function classListLibrary() {
         refs.navLinkLibrary.classList.add('site-navigation__link--active');
     }
 };
+
 function setHomeActive() {
     refs.navLinkLibrary.classList.remove('site-navigation__link--active');
     refs.navLinkHome.classList.add('site-navigation__link--active');
 };
+
 function clickOnBurger() {
     if (refs.header.classList.contains('header-details')) {
         refs.searchForm.classList.remove('is-visible')
@@ -128,12 +136,14 @@ function clickOnBurger() {
         }
     }
 };
+
 function closeBurger() {
     refs.burger.classList.remove('is-active');
     refs.nav.classList.remove('is-visible');
     refs.nav.classList.add('flex');
     refs.overlayHeader.classList.add('is-visible');
 };
+
 function openWarningMessage() {
     if (!filmService.query) {
         refs.warningMessage.classList.remove('is-visible');
@@ -142,7 +152,18 @@ function openWarningMessage() {
         return;
     }
 }
+
 function closeWarningMessage() {
     refs.warningMessage.classList.add('is-visible');
     refs.warningMessage.textContent = " ";
+}
+
+function onButtonWatched() {
+    refs.buttonWatched.classList.add('is-active');
+    refs.buttonQueue.classList.remove('is-active');
+}
+
+function onButtonQueue() {
+    refs.buttonQueue.classList.add('is-active');
+    refs.buttonWatched.classList.remove('is-active');
 }

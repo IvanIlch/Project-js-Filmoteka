@@ -34,13 +34,7 @@ async getFilms() {
           if (item.release_date)
             item.release_date = item.release_date.slice(0, 4);
         }
-        return item;
-      });
-      return newData;
-    } catch (error) {
-      console.error(error);
-    }
-  },
+    },
     async getPopularFilms() {
       try {
           spinerStart()
@@ -96,13 +90,13 @@ async getFilms() {
     spinerStart()
     spinerStop();
         return axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${token}&page=${page}`);
+
   },
   getFilmPaginationOnSearch(page) {
     spinerStart()
     spinerStop();
       return axios.get(
         `https://api.themoviedb.org/3/search/movie?api_key=${token}&query=${this.query}&page=${this.page}&include_adult=false&language=en-US&`,
-      );
     },
     resetPage() {
         this.page = 1
