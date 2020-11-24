@@ -7,8 +7,8 @@ const pagination = require('pagination');
 
 const Pagination = {
     items: null,
-    init(fetch) {
-        fetch.then(data => {
+    init(link) {
+        link.then(data => {
             this.items = data.data.total_pages;
         }).then(() => {
             const paginationWrapper = document.createElement('div');

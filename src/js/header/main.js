@@ -1,4 +1,5 @@
 import './refChangeHeader';
+import './localStorage'
 import filmService from './apiService';
 import renderFilms from './renderFilms';
 import Pagination from './pagination'
