@@ -53,7 +53,7 @@ async getFilms() {
                 newGenres.push(found.name);
               });
               }
-              catch { console.log("Сломалось");}
+              catch { console.log("На item немає жанрів");}
         
         if (newGenres.length >= 3 && item.release_date) {
           const normalizedGenres = newGenres.slice(0, 2);

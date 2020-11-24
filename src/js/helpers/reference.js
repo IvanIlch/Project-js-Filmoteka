@@ -18,5 +18,8 @@ refs = {
     filmViewSection: document.querySelector('.film-view-js'),
     pagination: document.querySelector('.pagination'),
     warningMessage: document.querySelector('.header-warning'),
-    spiner: document.querySelector('.loader-overlay')
+    spiner: document.querySelector('.loader-overlay'),
+    // fotoViewId: document.querySelector('.foto-img'),
+    // addToWatch: document.querySelector('.film-view-buttons--watched'),
+    addToQueue: document.querySelector('.film-view-buttons--queue')
 }
