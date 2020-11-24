@@ -19,7 +19,8 @@ refs = {
     pagination: document.querySelector('.pagination'),
     warningMessage: document.querySelector('.header-warning'),
     spiner: document.querySelector('.loader-overlay'),
-    // fotoViewId: document.querySelector('.foto-img'),
-    // addToWatch: document.querySelector('.film-view-buttons--watched'),
-    addToQueue: document.querySelector('.film-view-buttons--queue')
+    teamSection: document.querySelector('.team'),
+    footerLink: document.getElementById('footer__link'),
+    profileModal: document.getElementById('profile'),
+    profileCloseBtn: document.querySelector('.profile__close')
 }

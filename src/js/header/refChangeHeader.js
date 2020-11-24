@@ -2,7 +2,7 @@ import filmService from '../header/apiService';
 import Pagination from './pagination.js';
 import renderFilms from './renderFilms';
 import '../header/main';
-import {spinerStart, spinerStop} from '../helpers/spiner'
+import { spinerStart, spinerStop } from '../helpers/spiner'
 
 refs.searchForm.addEventListener('submit', async event => {
     event.preventDefault();
@@ -28,6 +28,8 @@ refs.searchForm.addEventListener('submit', async event => {
 });
 
 refs.logo.addEventListener('click', () => {
+    refs.teamSection.classList.add('is-visible');
+    Pagination.clear();
     Pagination.init(filmService.getFilmsPagination());
     classListHome();
     setHomeActive();
@@ -39,6 +41,8 @@ refs.logo.addEventListener('click', async e => {
 refs.burger.addEventListener('click', clickOnBurger);
 refs.navLinkLibrary.addEventListener('click', classListLibrary);
 refs.navLinkHome.addEventListener('click', (e) => {
+    refs.teamSection.classList.add('is-visible');
+    Pagination.clear();
     Pagination.init(filmService.getFilmsPagination());
     classListHome();
     if (refs.navLinkLibrary.classList.contains('site-navigation__link--active')) {
@@ -50,10 +54,22 @@ refs.navLinkHome.addEventListener('click', async e => {
     renderFilms(await filmService.getPopularFilms())
 });
 refs.buttonHomeOnBurger.addEventListener('click', () => {
+    // refs.warningMessage.classList.add('is-visible');
+    refs.teamSection.classList.add('is-visible');
+    Pagination.clear();
+    Pagination.init(filmService.getFilmsPagination());
     classListHome();
-    closeBurger()
+    closeBurger();
 });
+
+refs.buttonHomeOnBurger.addEventListener('click', async e => {
+    renderFilms(await filmService.getPopularFilms());
+});
+
 refs.buttonLibraryOnBurger.addEventListener('click', () => {
+    refs.teamSection.classList.add('is-visible');
+    Pagination.clear();
+    refs.galleryList.innerHTML = '';
     classListLibrary();
     closeBurger();
 });
@@ -80,15 +96,19 @@ function classListHome() {
 };
 
 function openFilmView() {
-    refs.headerButtons.classList.add('is-visible');
+    onClickFooterLink();
+    refs.filmViewSection.innerHTML = '';
+}
+
+function onClickFooterLink() {
     refs.header.classList.add('header-details');
     refs.headerButtons.classList.add('is-visible');
+    refs.headerButtons.classList.remove('flex');
     refs.header.classList.remove('header-home');
     refs.header.classList.remove('header-library');
     refs.searchForm.classList.add('is-visible');
     refs.navLinkHome.classList.remove('site-navigation__link--active');
     refs.navLinkLibrary.classList.remove('site-navigation__link--active');
-    refs.filmViewSection.innerHTML = '';
 }
 
 function classListLibrary() {
@@ -98,6 +118,7 @@ function classListLibrary() {
         refs.header.classList.remove('header-details');
     };
     refs.navLinkLibrary.classList.add('site-navigation__link--active');
+    refs.teamSection.classList.add('is-visible');
     refs.pagination.classList.remove('is-visible');
     refs.header.classList.remove('header-home');
     refs.header.classList.add('header-library');
@@ -167,3 +188,4 @@ function onButtonQueue() {
     refs.buttonQueue.classList.add('is-active');
     refs.buttonWatched.classList.remove('is-active');
 }
+export { onClickFooterLink }
