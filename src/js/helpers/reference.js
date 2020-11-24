@@ -18,5 +18,9 @@ refs = {
     filmViewSection: document.querySelector('.film-view-js'),
     pagination: document.querySelector('.pagination'),
     warningMessage: document.querySelector('.header-warning'),
-    spiner: document.querySelector('.loader-overlay')
+    spiner: document.querySelector('.loader-overlay'),
+    teamSection: document.querySelector('.team'),
+    footerLink: document.getElementById('footer__link'),
+    profileModal: document.getElementById('profile'),
+    profileCloseBtn: document.querySelector('.profile__close')
 }
