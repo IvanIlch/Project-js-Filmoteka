@@ -73,7 +73,9 @@ refs.buttonLibraryOnBurger.addEventListener('click', () => {
     classListLibrary();
     closeBurger();
 });
-refs.filmsSection.addEventListener('click', openFilmView);
+refs.filmsSection.addEventListener('click', (e) => {
+    openFilmView(e);
+});
 refs.buttonWatched.addEventListener('click', onButtonWatched);
 refs.buttonQueue.addEventListener('click', onButtonQueue);
 
@@ -90,14 +92,16 @@ function classListHome() {
     refs.headerButtons.classList.remove('flex');
     refs.filmViewSection.classList.add('is-visible');
     refs.galleryList.classList.remove('is-visible');
-    refs.filmsSection.classList.remove('is-visible');
     refs.navLinkHome.classList.add('site-navigation__link--active');
     refs.header.classList.remove('header-details');
 };
 
-function openFilmView() {
-    onClickFooterLink();
+function openFilmView(e) {
+    if (e.target.tagName === "IMG") {
+        onClickFooterLink();
     refs.filmViewSection.innerHTML = '';
+    }
+    
 }
 
 function onClickFooterLink() {
@@ -119,11 +123,6 @@ function classListLibrary() {
         refs.header.classList.remove('header-details');
         if (refs.buttonWatched.classList.contains('is-active')) {
             renderLibraryHome();
-    //         const libraryBtnClose = document.querySelector('.list-films--closeBtn');
-    //         libraryBtnClose.addEventListener('click', (e) => {
-    //             e.preventDefault()
-    //         console.log(e);
-    // })
         }
         else {
             renderLibraryQueue()
@@ -138,6 +137,7 @@ function classListLibrary() {
     refs.headerButtons.classList.remove('is-visible');
     refs.headerButtons.classList.add('flex');
     refs.filmViewSection.classList.add('is-visible');
+    refs.filmsSection.classList.remove('is-visible');
     if (refs.navLinkHome.classList.contains('site-navigation__link--active')) {
         refs.navLinkHome.classList.remove('site-navigation__link--active');
         refs.navLinkLibrary.classList.add('site-navigation__link--active');

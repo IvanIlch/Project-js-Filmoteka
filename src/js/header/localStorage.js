@@ -8,7 +8,6 @@ function addToWatch(id) {
     addToWatchBtn.addEventListener('click', async (e) => {
         e.preventDefault();
       const watchedList = JSON.parse(localStorage.getItem("Watch")) || [];
-      console.dir(e.target);
       addToWatchBtn.classList.toggle('film-view-buttons--active');
       const object = await filmService.getFilmId(id);
         const name = 'Watch';
@@ -68,6 +67,7 @@ function renderFilms(data) {
   const markup = filmLibrary(data);
   return refs.galleryList.insertAdjacentHTML('beforeend', markup);
 }
+
 function normalize(item) {
    const newData = item.map(item => {
           if (item.genres >= 3 && item.release_date) {
@@ -94,11 +94,8 @@ function setActive(e, id) {
 
   const dataWatch = JSON.parse(localStorage.getItem("Watch"));
   const dataQueue = JSON.parse(localStorage.getItem("Queue"));
-  console.log(id);
   const searchItemOnWatch = dataWatch.map((elem) => {
-    console.log(elem.id);
     if (elem.id === id) {
-      console.log('hello');
       addToWatchBtn.classList.add('film-view-buttons--active')
       addToWatchBtn.textContent = "ADDED TO WATCH";
     }
@@ -120,4 +117,4 @@ function setActive(e, id) {
 }
 
 
-export {addToWatch, addToQueue, renderLibraryHome, renderLibraryQueue, setActive}
+export {addToWatch, addToQueue, renderLibraryHome, renderLibraryQueue, setActive, checkList, renderFilms, normalize}
