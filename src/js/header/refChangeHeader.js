@@ -12,7 +12,6 @@ refs.searchForm.addEventListener('submit', async event => {
     Pagination.clear();
     refs.galleryList.innerHTML = '';
     if (filmService.query) {
-        Pagination.init(filmService.getFilmPaginationOnSearch());
         closeWarningMessage();
         refs.galleryList.innerHTML = '';
         filmService.resetPage();
@@ -54,7 +53,7 @@ refs.navLinkHome.addEventListener('click', async e => {
     renderFilms(await filmService.getPopularFilms())
 });
 refs.buttonHomeOnBurger.addEventListener('click', () => {
-    // refs.warningMessage.classList.add('is-visible');
+
     refs.teamSection.classList.add('is-visible');
     Pagination.clear();
     Pagination.init(filmService.getFilmsPagination());
@@ -142,6 +141,7 @@ function clickOnBurger() {
         refs.searchForm.classList.remove('is-visible')
     };
     refs.overlayHeader.classList.toggle('is-visible');
+    refs.warningMessage.classList.add('is-visible');
     refs.burger.classList.toggle('is-active');
     refs.nav.classList.toggle('flex');
     refs.nav.classList.toggle('is-visible');

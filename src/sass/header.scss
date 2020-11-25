@@ -128,9 +128,18 @@ img {
     margin-top: -4px;
 }
 
-input[type='text']::placeholder {
+input::placeholder {
     border-bottom: 3px solid $color-white;
     color: $color-white;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+.search-form:hover {
+    transform: scale(1.03);
+    transition: all 400ms linear;
 }
 
 .home-search {
