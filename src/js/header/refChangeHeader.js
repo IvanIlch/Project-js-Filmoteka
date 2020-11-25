@@ -113,12 +113,17 @@ function onClickFooterLink() {
 
 function classListLibrary() {
     refs.header.classList.add('header-library')
-    Pagination.clear()
+    Pagination.clear();
     if (refs.header.classList.contains('header-details')) {
         refs.header.classList.add('header-library');
         refs.header.classList.remove('header-details');
         if (refs.buttonWatched.classList.contains('is-active')) {
             renderLibraryHome();
+    //         const libraryBtnClose = document.querySelector('.list-films--closeBtn');
+    //         libraryBtnClose.addEventListener('click', (e) => {
+    //             e.preventDefault()
+    //         console.log(e);
+    // })
         }
         else {
             renderLibraryQueue()

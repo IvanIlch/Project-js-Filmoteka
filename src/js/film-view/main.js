@@ -1,7 +1,7 @@
 import filmTempl from './templates/film-view.hbs';
 import filmService from '../header/apiService';
 import Pagination from '../header/pagination';
-import { addToWatch, addToQueue } from '../header/localStorage'
+import { addToWatch, addToQueue, setActive } from '../header/localStorage'
 
 function renderFilmInfo(filmName) {
     const markup = filmTempl(filmName);
@@ -20,4 +20,5 @@ refs.galleryList.addEventListener('click', async(e) => {
     await renderFilmInfo(await filmService.getFilmId(id));
     await addToWatch(id);
     await addToQueue(id);
+    await setActive(e, Number(id));
 });

@@ -20,7 +20,9 @@ refs = {
     warningMessage: document.querySelector('.header-warning'),
     spiner: document.querySelector('.loader-overlay'),
     teamSection: document.querySelector('.team'),
-    footerLink: document.getElementById('footer__link'),
+    teamList: document.getElementById('team-list'),
+    footerLink: document.getElementById('footer__link'),    
     profileModal: document.getElementById('profile'),
-    profileCloseBtn: document.querySelector('.profile__close')
+    profileCloseBtn: document.querySelector('.profile__close'),
+    profileContent: document.querySelector('.profile-content')
 }

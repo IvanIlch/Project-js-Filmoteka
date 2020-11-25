@@ -19,9 +19,6 @@ function addToWatch(id) {
       else {
         e.target.textContent = "ADD TO WATCH";
       }
-      
-        
-      
     })
 }
 
@@ -53,23 +50,23 @@ function checkList(list, movie, name) {
       list.push(movie);
       localStorage.setItem(name, JSON.stringify(list));
     }
-  }
+}
 
 function renderLibraryHome() {
-  const data = JSON.parse(localStorage.getItem("Watch"));
+const data = JSON.parse(localStorage.getItem("Watch"));
+refs.galleryList.innerHTML = '';
+renderFilms(normalize(data));
+}
+
+function renderLibraryQueue() {
+  const data = JSON.parse(localStorage.getItem("Queue"));
   refs.galleryList.innerHTML = '';
-    renderFilms(normalize(data));
-  }
+  renderFilms(normalize(data));
+}
 
-  function renderLibraryQueue() {
-    const data = JSON.parse(localStorage.getItem("Queue"));
-    refs.galleryList.innerHTML = '';
-    renderFilms(normalize(data));
-  }
-
-  function renderFilms(data) {
-    const markup = filmLibrary(data);
-    return refs.galleryList.insertAdjacentHTML('beforeend', markup);
+function renderFilms(data) {
+  const markup = filmLibrary(data);
+  return refs.galleryList.insertAdjacentHTML('beforeend', markup);
 }
 function normalize(item) {
    const newData = item.map(item => {
@@ -90,5 +87,37 @@ function normalize(item) {
       return newData;
 }
 
+function setActive(e, id) {
+  const addToWatchBtn = document.querySelector('.film-view-buttons--watched');
+  const addToQueueBtn = document.querySelector('.film-view-buttons--queue');
+  console.dir(addToWatchBtn);
 
-export {addToWatch, addToQueue, renderLibraryHome, renderLibraryQueue}
+  const dataWatch = JSON.parse(localStorage.getItem("Watch"));
+  const dataQueue = JSON.parse(localStorage.getItem("Queue"));
+  console.log(id);
+  const searchItemOnWatch = dataWatch.map((elem) => {
+    console.log(elem.id);
+    if (elem.id === id) {
+      console.log('hello');
+      addToWatchBtn.classList.add('film-view-buttons--active')
+      addToWatchBtn.textContent = "ADDED TO WATCH";
+    }
+    else {
+      return
+    }
+  })
+  const searchItemOnQueue = dataQueue.map((elem) => {
+    if (elem.id === id) {
+      addToQueueBtn.classList.add('film-view-buttons--active')
+      addToQueueBtn.textContent = "ADDED TO QUEUE";
+    }
+    else {
+      return
+    }
+  })
+
+  
+}
+
+
+export {addToWatch, addToQueue, renderLibraryHome, renderLibraryQueue, setActive}

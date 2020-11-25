@@ -8,12 +8,32 @@
     max-width: 918px;
   }
 }
+.foto-box {
+  position: relative;
+}
 .list-films {
   margin: 0 auto;
   padding-top: 60px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  &--closeBtn {
+    position: absolute;
+    opacity: 0;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(./images/team/close.svg);
+    background-size: contain;
+    transition: transform 0.4s ease-in-out;
+    &:hover,
+    :focus {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
   @media (min-width: 1024px) {
     max-width: 894px;
   }
@@ -43,6 +63,10 @@
     :hover.foto-box img {
       box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.75);
       cursor: pointer;
+    }
+    &:focus,
+    :hover .list-films--closeBtn {
+      opacity: 1;
     }
     @media (min-width: 320px) and(max-width:768px) {
       margin: 0;
