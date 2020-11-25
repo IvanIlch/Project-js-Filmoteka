@@ -35,6 +35,9 @@
     font-weight: 500;
     font-size: 12px;
     transition: 0.3s linear all;
+    &-ganre-list-item {
+      display: inline-block;
+    }
 
     &:focus,
     :hover.foto-box img {

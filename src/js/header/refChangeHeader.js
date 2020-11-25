@@ -2,7 +2,8 @@ import filmService from '../header/apiService';
 import Pagination from './pagination.js';
 import renderFilms from './renderFilms';
 import '../header/main';
-import { spinerStart, spinerStop } from '../helpers/spiner'
+import { spinerStart, spinerStop } from '../helpers/spiner';
+import {renderLibraryHome, renderLibraryQueue} from './localStorage'
 
 refs.searchForm.addEventListener('submit', async event => {
     event.preventDefault();
@@ -12,7 +13,6 @@ refs.searchForm.addEventListener('submit', async event => {
     Pagination.clear();
     refs.galleryList.innerHTML = '';
     if (filmService.query) {
-        Pagination.init(filmService.getFilmPaginationOnSearch());
         closeWarningMessage();
         refs.galleryList.innerHTML = '';
         filmService.resetPage();
@@ -113,9 +113,16 @@ function onClickFooterLink() {
 
 function classListLibrary() {
     refs.header.classList.add('header-library')
+    Pagination.clear()
     if (refs.header.classList.contains('header-details')) {
         refs.header.classList.add('header-library');
         refs.header.classList.remove('header-details');
+        if (refs.buttonWatched.classList.contains('is-active')) {
+            renderLibraryHome();
+        }
+        else {
+            renderLibraryQueue()
+        }
     };
     refs.navLinkLibrary.classList.add('site-navigation__link--active');
     refs.teamSection.classList.add('is-visible');
@@ -129,7 +136,14 @@ function classListLibrary() {
     if (refs.navLinkHome.classList.contains('site-navigation__link--active')) {
         refs.navLinkHome.classList.remove('site-navigation__link--active');
         refs.navLinkLibrary.classList.add('site-navigation__link--active');
+        if (refs.buttonWatched.classList.contains('is-active')) {
+            renderLibraryHome();
+        }
+        else {
+            renderLibraryQueue()
+        }
     }
+
 };
 
 function setHomeActive() {
@@ -182,10 +196,22 @@ function closeWarningMessage() {
 function onButtonWatched() {
     refs.buttonWatched.classList.add('is-active');
     refs.buttonQueue.classList.remove('is-active');
+    if (refs.buttonWatched.classList.contains('is-active')) {
+            renderLibraryHome();
+        }
+        else {
+            renderLibraryQueue()
+        }
 }
 
 function onButtonQueue() {
     refs.buttonQueue.classList.add('is-active');
     refs.buttonWatched.classList.remove('is-active');
+    if (refs.buttonWatched.classList.contains('is-active')) {
+            renderLibraryHome();
+        }
+        else {
+            renderLibraryQueue()
+        }
 }
 export { onClickFooterLink }

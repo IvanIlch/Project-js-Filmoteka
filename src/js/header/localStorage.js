@@ -1,26 +1,94 @@
 import filmService from './apiService'
-const toLocalWatch = [];
-const toLocalQueue = [];
+import filmLibrary from './templates/libraryHome.hbs'
+
 
 function addToWatch(id) {
-    const addToWatch = document.querySelector('.film-view-buttons--watched');
-    addToWatch.addEventListener('click',async (e) => {
+    const addToWatchBtn = document.querySelector('.film-view-buttons--watched');
+
+    addToWatchBtn.addEventListener('click', async (e) => {
         e.preventDefault();
-        const object = await filmService.getFilmId(id);
-        toLocalWatch.push(object);
-        localStorage.setItem('toWatch', JSON.stringify(toLocalWatch));
+      const watchedList = JSON.parse(localStorage.getItem("Watch")) || [];
+      console.dir(e.target);
+      addToWatchBtn.classList.toggle('film-view-buttons--active');
+      const object = await filmService.getFilmId(id);
+        const name = 'Watch';
+      checkList(watchedList, object, name);
+      if (addToWatchBtn.classList.contains('film-view-buttons--active')) {
+        e.target.textContent = "ADDED TO WATCH";
+      }
+      else {
+        e.target.textContent = "ADD TO WATCH";
+      }
+      
+        
+      
     })
 }
 
 function addToQueue(id) {
-    const addToQueue = document.querySelector('.film-view-buttons--queue');
-    addToQueue.addEventListener('click',async (e) => {
+    const addToQueueBtn = document.querySelector('.film-view-buttons--queue');
+
+    addToQueueBtn.addEventListener('click',async (e) => {
         e.preventDefault();
+        const watchedQueue = JSON.parse(localStorage.getItem("Queue")) || [];
+        addToQueueBtn.classList.toggle('film-view-buttons--active');
         const object = await filmService.getFilmId(id);
-        toLocalQueue.push(object);
-        localStorage.setItem('toQueue', JSON.stringify(toLocalQueue));
+        const name = 'Queue';
+      checkList(watchedQueue, object, name);
+      if (addToQueueBtn.classList.contains('film-view-buttons--active')) {
+        e.target.textContent = "ADDED TO QUEUE";
+      }
+      else {
+        e.target.textContent = "ADD TO QUEUE";
+      }
     })
 }
 
+function checkList(list, movie, name) {
+    const { id } = movie;
+    if (list.find((item) => item.id === id)) {
+      list = list.filter((item) => item.id !== id);
+      localStorage.setItem(name, JSON.stringify(list));
+    } else {
+      list.push(movie);
+      localStorage.setItem(name, JSON.stringify(list));
+    }
+  }
 
-export {addToWatch, addToQueue}
+function renderLibraryHome() {
+  const data = JSON.parse(localStorage.getItem("Watch"));
+  refs.galleryList.innerHTML = '';
+    renderFilms(normalize(data));
+  }
+
+  function renderLibraryQueue() {
+    const data = JSON.parse(localStorage.getItem("Queue"));
+    refs.galleryList.innerHTML = '';
+    renderFilms(normalize(data));
+  }
+
+  function renderFilms(data) {
+    const markup = filmLibrary(data);
+    return refs.galleryList.insertAdjacentHTML('beforeend', markup);
+}
+function normalize(item) {
+   const newData = item.map(item => {
+          if (item.genres >= 3 && item.release_date) {
+          item.genres = item.genres.slice(0, 2);
+          item.release_date = item.release_date.slice(0, 4);
+        } else {
+          if (item.release_date){
+            item.release_date = item.release_date.slice(0, 4);
+          }
+          if (item.first_air_date) {
+            item.release_date = item.first_air_date.slice(0, 4);
+          }
+          }
+          
+        return item;
+      });
+      return newData;
+}
+
+
+export {addToWatch, addToQueue, renderLibraryHome, renderLibraryQueue}

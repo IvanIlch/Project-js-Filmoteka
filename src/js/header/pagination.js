@@ -60,7 +60,6 @@ function getGenres(response) {
               let newGenres = [];
               try{item.genre_ids.map(id => {
                   const found = genresIds.find(item => item.id === id);
-                  console.log(found);
           newGenres.push(found.name);
               });
               }
