@@ -3,7 +3,7 @@ import Pagination from './pagination.js';
 import renderFilms from './renderFilms';
 import '../header/main';
 import { spinerStart, spinerStop } from '../helpers/spiner';
-import {renderLibraryHome, renderLibraryQueue} from './localStorage'
+import { renderLibraryHome, renderLibraryQueue } from './localStorage'
 
 refs.searchForm.addEventListener('submit', async event => {
     event.preventDefault();
@@ -99,9 +99,9 @@ function classListHome() {
 function openFilmView(e) {
     if (e.target.tagName === "IMG") {
         onClickFooterLink();
-    refs.filmViewSection.innerHTML = '';
+        refs.filmViewSection.innerHTML = '';
     }
-    
+
 }
 
 function onClickFooterLink() {
@@ -123,14 +123,14 @@ function classListLibrary() {
         refs.header.classList.remove('header-details');
         if (refs.buttonWatched.classList.contains('is-active')) {
             renderLibraryHome();
-        }
-        else {
+        } else {
             renderLibraryQueue()
         }
     };
     refs.navLinkLibrary.classList.add('site-navigation__link--active');
     refs.teamSection.classList.add('is-visible');
     refs.pagination.classList.remove('is-visible');
+    refs.warningMessage.classList.add('is-visible');
     refs.header.classList.remove('header-home');
     refs.header.classList.add('header-library');
     refs.searchForm.classList.add('is-visible');
@@ -143,8 +143,7 @@ function classListLibrary() {
         refs.navLinkLibrary.classList.add('site-navigation__link--active');
         if (refs.buttonWatched.classList.contains('is-active')) {
             renderLibraryHome();
-        }
-        else {
+        } else {
             renderLibraryQueue()
         }
     }
@@ -203,21 +202,19 @@ function onButtonWatched() {
     refs.buttonWatched.classList.add('is-active');
     refs.buttonQueue.classList.remove('is-active');
     if (refs.buttonWatched.classList.contains('is-active')) {
-            renderLibraryHome();
-        }
-        else {
-            renderLibraryQueue()
-        }
+        renderLibraryHome();
+    } else {
+        renderLibraryQueue()
+    }
 }
 
 function onButtonQueue() {
     refs.buttonQueue.classList.add('is-active');
     refs.buttonWatched.classList.remove('is-active');
     if (refs.buttonWatched.classList.contains('is-active')) {
-            renderLibraryHome();
-        }
-        else {
-            renderLibraryQueue()
-        }
+        renderLibraryHome();
+    } else {
+        renderLibraryQueue()
+    }
 }
 export { onClickFooterLink }
